@@ -58,4 +58,11 @@ class SanickioskScreensaverPrefs (SectionPlugin):
 			"Comment[en_US]=\n"
 			"Comment=") % (home_url, enable_browser)
         
-        	open('/home/kiosk/.config/autostart/2-browser.desktop', 'w').write(cfg) #save
+        	filename = '/home/kiosk/.config/autostart/2-browser.desktop'
+        	if not os.path.exists(os.path.dirname(filename)):
+        		try:
+        			os.makedirs(os.path.dirname(filename))
+        		except OSError as exc:
+        			if exc.errno != errno.EEXIST:
+        				raise
+        	open(filename, 'w').write(cfg) #save
