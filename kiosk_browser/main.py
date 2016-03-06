@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import subprocess
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
